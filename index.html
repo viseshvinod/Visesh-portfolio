@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VISESH AV</title>
+<meta name="description" content="Portfolio of VISESH AV,  B.Tech in AI and Data Science.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one left-aligned column. The hero pairs the intro with four solid colour tiles, one per focus area. The same four colours then tag projects and filters, so colour carries meaning. */
+:root {
+  --bg: #EEF2FA;
+  --surface: #FFFFFF;
+  --ink: #0F1B33;
+  --muted: #4A5878;
+  --line: #D3DBEC;
+  --accent: #2347D8;
+  --accent-ink: #FFFFFF;
+
+  --c-cv: #2347D8;
+  --c-nlp: #7A3FE0;
+  --c-data: #F59E0B;
+  --c-ml: #CF3A22;
+  --on-cv: #FFFFFF;
+  --on-nlp: #FFFFFF;
+  --on-data: #2B1A00;
+  --on-ml: #FFFFFF;
+
+  --t-cv: #E3EAFF;
+  --t-nlp: #EEE5FF;
+  --t-data: #FFF0CC;
+  --t-ml: #FFE4DE;
+  --k-cv: #1B38B0;
+  --k-nlp: #5E2AB8;
+  --k-data: #8A5200;
+  --k-ml: #B3321C;
+
+  --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0A1226;
+    --surface: #121C36;
+    --ink: #E9EEFA;
+    --muted: #9DABC8;
+    --line: #243152;
+    --accent: #8FA8FF;
+    --accent-ink: #0A1230;
+    --t-cv: #16254F;
+    --t-nlp: #2A1B52;
+    --t-data: #3A2A08;
+    --t-ml: #3F1D17;
+    --k-cv: #9DB4FF;
+    --k-nlp: #C4A8FF;
+    --k-data: #FFC857;
+    --k-ml: #FF9C86;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0A1226;
+  --surface: #121C36;
+  --ink: #E9EEFA;
+  --muted: #9DABC8;
+  --line: #243152;
+  --accent: #8FA8FF;
+  --accent-ink: #0A1230;
+  --t-cv: #16254F;
+  --t-nlp: #2A1B52;
+  --t-data: #3A2A08;
+  --t-ml: #3F1D17;
+  --k-cv: #9DB4FF;
+  --k-nlp: #C4A8FF;
+  --k-data: #FFC857;
+  --k-ml: #FF9C86;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 30;
+  background: var(--bg);
+}
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: -0.015em; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Header with a four-colour strip */
+.site {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: var(--bg);
+}
+.site::after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--c-cv) 0 25%, var(--c-nlp) 25% 50%, var(--c-data) 50% 75%, var(--c-ml) 75% 100%);
+}
+.site .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 24px;
+  padding-block: 10px;
+}
+.brand { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+.site nav { display: flex; flex-wrap: wrap; gap: 2px 18px; min-width: 0; }
+.site nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; font-weight: 500; padding: 4px 0; }
+.site nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 6px; }
+
+/* Hero */
+.hero { padding-block: 56px 56px; }
+.hero-grid { display: grid; gap: 44px; align-items: center; }
+.hero h1 { font-size: clamp(2.8rem, 8vw, 5rem); font-weight: 700; line-height: 1; }
+.role { margin-top: 14px; font-family: var(--font-display); font-size: clamp(1.15rem, 2.6vw, 1.5rem); font-weight: 600; color: var(--accent); }
+.intro { margin-top: 20px; max-width: 58ch; font-size: 1.08rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1.5px solid var(--accent);
+}
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn.ghost { color: var(--accent); background: transparent; }
+.btn:hover { filter: brightness(1.1); }
+
+.facts { display: flex; flex-wrap: wrap; gap: 20px 40px; margin: 40px 0 0; padding-top: 20px; border-top: 1px solid var(--line); }
+.facts div { min-width: 0; }
+.facts dt { font-size: 0.85rem; color: var(--muted); }
+.facts dd { margin: 2px 0 0; font-weight: 600; }
+
+.focus-title { font-family: var(--font-display); font-weight: 600; font-size: 1rem; color: var(--muted); margin-bottom: 12px; }
+.focus { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.tile { border-radius: 12px; padding: 20px 18px 22px; min-width: 0; display: flex; flex-direction: column; gap: 8px; min-height: 160px; }
+.tile h3 { font-size: 1.25rem; font-weight: 700; }
+.tile p { font-size: 0.92rem; line-height: 1.45; }
+.tile.cv { background: var(--c-cv); color: var(--on-cv); }
+.tile.nlp { background: var(--c-nlp); color: var(--on-nlp); }
+.tile.data { background: var(--c-data); color: var(--on-data); }
+.tile.ml { background: var(--c-ml); color: var(--on-ml); }
+
+/* Sections */
+.section { padding-block: 64px; border-top: 1px solid var(--line); scroll-margin-top: 56px; }
+.section-grid { display: grid; gap: 28px 56px; }
+.section h2 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 650; }
+.section h3 { font-size: 1.2rem; font-weight: 600; }
+.sub { font-size: 1.05rem; font-weight: 600; font-family: var(--font-display); margin-bottom: 8px; }
+.content { min-width: 0; }
+
+/* Projects */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.filter {
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+.filter:hover { border-color: var(--accent); }
+.filter[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.filter[data-filter="cv"][aria-pressed="true"] { background: var(--c-cv); border-color: var(--c-cv); color: var(--on-cv); }
+.filter[data-filter="nlp"][aria-pressed="true"] { background: var(--c-nlp); border-color: var(--c-nlp); color: var(--on-nlp); }
+.filter[data-filter="analytics"][aria-pressed="true"] { background: var(--c-data); border-color: var(--c-data); color: var(--on-data); }
+.project { padding-block: 28px; border-top: 1px solid var(--line); }
+.project:first-of-type { border-top: 0; }
+.project[hidden] { display: none !important; }
+.project-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.kind { font-size: 0.8rem; font-weight: 600; padding: 2px 10px; border-radius: 999px; }
+.project p { margin-top: 10px; max-width: 68ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.chips li { font-size: 0.82rem; font-weight: 500; padding: 3px 10px; border-radius: 4px; }
+.project[data-cat="cv"] .kind, .project[data-cat="cv"] .chips li { background: var(--t-cv); color: var(--k-cv); }
+.project[data-cat="nlp"] .kind, .project[data-cat="nlp"] .chips li { background: var(--t-nlp); color: var(--k-nlp); }
+.project[data-cat="data"] .kind, .project[data-cat="data"] .chips li { background: var(--t-data); color: var(--k-data); }
+
+/* Dated rows */
+.row { display: grid; gap: 6px 32px; padding-block: 24px; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; padding-top: 0; }
+.row .when { color: var(--muted); font-size: 0.92rem; font-variant-numeric: tabular-nums; }
+.row h3 { font-size: 1.15rem; }
+.row .org { color: var(--accent); font-weight: 600; margin-top: 2px; }
+.row p { margin-top: 10px; max-width: 66ch; }
+.row.cv .org { color: var(--k-cv); }
+.row.nlp .org { color: var(--k-nlp); }
+.row.data .org { color: var(--k-data); }
+.row.ml .org { color: var(--k-ml); }
+
+/* Skills */
+.skills { display: grid; }
+.skill { display: grid; gap: 4px 32px; padding-block: 16px; border-top: 1px solid var(--line); }
+.skill:first-child { border-top: 0; padding-top: 0; }
+.skill dt { font-weight: 600; }
+.skill dd { margin: 0; color: var(--muted); }
+
+/* Recognition */
+.stack { display: grid; gap: 40px; }
+.list li { padding-block: 10px; border-top: 1px solid var(--line); max-width: 66ch; }
+.list li:first-child { border-top: 0; padding-top: 0; }
+.list .meta { display: block; color: var(--muted); font-size: 0.9rem; }
+
+/* Contact */
+.contact-list { display: grid; }
+.contact-row { display: grid; grid-template-columns: 1fr; gap: 2px 20px; align-items: center; padding-block: 14px; border-top: 1px solid var(--line); }
+.contact-row:first-child { border-top: 0; padding-top: 0; }
+.contact-row .label { color: var(--muted); font-size: 0.9rem; }
+.contact-row .value { font-weight: 500; word-break: break-word; min-width: 0; }
+.copy {
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  justify-self: start;
+}
+.copy:hover { border-color: var(--accent); }
+.note { margin-top: 18px; color: var(--muted); font-size: 0.92rem; }
+
+footer { border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 28px; color: var(--muted); font-size: 0.9rem; }
+
+@media (min-width: 640px) {
+  .row { grid-template-columns: 150px minmax(0, 1fr); }
+  .skill { grid-template-columns: 210px minmax(0, 1fr); }
+  .contact-row { grid-template-columns: 110px minmax(0, 1fr) auto; }
+}
+@media (min-width: 860px) {
+  .hero-grid { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 56px; }
+  .section-grid { grid-template-columns: minmax(0, 220px) minmax(0, 1fr); }
+  .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stack .span-2 { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body { margin: 0; }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">VISESH AV</a>
+    <nav aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>VISESH AV<h1>
+        <p class="role">BTECH in AI and Data science</p>
+        <p class="intro">Recent B.Tech graduate in Artificial Intelligence and Data Science. I work across machine learning, data analysis and NLP, and I like projects where the result helps someone communicate or decide, such as sign language recognition, Braille to speech and churn dashboards.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">See projects</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+        <dl class="facts">
+          <div><dt>Degree</dt><dd>B.Tech, AI and Data Science, 2025</dd></div>
+          <div><dt>Experience</dt><dd>3 internships</dd></div>
+          <div><dt>Papers</dt><dd>2 conference presentations</dd></div>
+        </dl>
+      </div>
+      <div>
+        <p class="focus-title">What I work on</p>
+        <div class="focus">
+          <div class="tile cv"><h3>Computer vision</h3><p>Sign language recognition, Braille to text and voice</p></div>
+          <div class="tile nlp"><h3>NLP</h3><p>Sentiment analysis, document extraction</p></div>
+          <div class="tile data"><h3>Analytics</h3><p>Tableau churn dashboard, Power BI dashboards</p></div>
+          <div class="tile ml"><h3>Machine learning</h3><p>Preprocessing, feature engineering, predictive models</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="wrap section-grid">
+      <h2>Projects</h2>
+      <div class="content">
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter" type="button" data-filter="cv" aria-pressed="false">Computer vision</button>
+          <button class="filter" type="button" data-filter="nlp" aria-pressed="false">NLP</button>
+          <button class="filter" type="button" data-filter="analytics" aria-pressed="false">Analytics</button>
+        </div>
+
+        <article class="project" data-cat="nlp" data-tags="nlp">
+          <div class="project-head"><h3>Sentiment analysis and insight generation</h3><span class="kind">NLP</span></div>
+          <p>Turns unstructured website and market text into something a team can act on. The system scrapes and cleans the text, scores sentiment polarity, detects intent and emotion, and writes explainable insights and recommendations.</p>
+          <ul class="chips"><li>Python</li><li>NLP</li><li>VADER</li><li>Rule-based NLP</li><li>Web scraping</li></ul>
+        </article>
+
+        <article class="project" data-cat="cv" data-tags="cv">
+          <div class="project-head"><h3>Sign language recognition</h3><span class="kind">Computer vision</span></div>
+          <p>Recognizes hand gestures from live video in real time using a convolutional neural network, and maps them to letters or words. A Streamlit interface shows each prediction instantly. The aim is easier communication for people who are hearing-impaired.</p>
+          <ul class="chips"><li>Python</li><li>OpenCV</li><li>TensorFlow</li><li>Keras</li><li>Streamlit</li></ul>
+        </article>
+
+        <article class="project" data-cat="cv" data-tags="cv">
+          <div class="project-head"><h3>Braille to text and voice</h3><span class="kind">Computer vision</span></div>
+          <p>Detects the raised dots in an image of Braille, maps each cell to its letter, and reads the text aloud with a text-to-speech module. It supports communication between blind and sighted people in both directions.</p>
+          <ul class="chips"><li>Python</li><li>OpenCV</li><li>OCR</li><li>gTTS</li></ul>
+        </article>
+
+        <article class="project" data-cat="data" data-tags="analytics">
+          <div class="project-head"><h3>Customer churn analysis</h3><span class="kind">Analytics</span></div>
+          <p>A Tableau dashboard for a telecom dataset. After preprocessing and calculated fields, it shows churn rate trends, high-risk customer profiles and service usage patterns, so management can plan targeted retention strategies.</p>
+          <ul class="chips"><li>Tableau</li><li>Python</li><li>SQL</li></ul>
+        </article>
+
+        <article class="project" data-cat="nlp" data-tags="nlp cv">
+          <div class="project-head"><h3>Intelligent document extraction tool</h3><span class="kind">NLP and OCR</span></div>
+          <p>Extracts structured data from PDFs, images and Word documents. Tesseract OCR reads images and PDFMiner reads PDFs, then regex and rule-based logic pull out names, invoices and other key fields. A built-in web scraper automates data collection, and the modular design makes it easy to extend to new document types.</p>
+          <ul class="chips"><li>Python</li><li>Tesseract OCR</li><li>PDFMiner</li><li>Regex</li><li>Web scraping</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="wrap section-grid">
+      <h2>Experience</h2>
+      <div class="content">
+        <div class="row ml">
+          <div class="when">Present</div>
+          <div>
+            <h3>Data Science and AI/ML Intern</h3>
+            <div class="org">ROGERSOFT INDIA</div>
+            <p>Data preprocessing, feature engineering and predictive modeling with Pandas, NumPy and scikit-learn. Built interactive Power BI dashboards to show insights and model results.</p>
+          </div>
+        </div>
+        <div class="row nlp">
+          <div class="when">Oct 2025 to Jan 2026</div>
+          <div>
+            <h3>AI/ML Intern</h3>
+            <div class="org">LADDER7</div>
+            <p>Worked through the full AI/ML and data science process, from data preprocessing to model evaluation.</p>
+          </div>
+        </div>
+        <div class="row cv">
+          <div class="when">Mar to May 2024</div>
+          <div>
+            <h3>Machine Learning Intern</h3>
+            <div class="org">Intrainz</div>
+            <p>Extracted insights from real-world datasets and presented them in clear visualizations. Gained a base in data preprocessing, model building and evaluation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="wrap section-grid">
+      <h2>Skills</h2>
+      <dl class="content skills">
+        <div class="skill"><dt>Core areas</dt><dd>Data analysis, machine learning, deep learning, generative AI, NLP, computer vision, model deployment</dd></div>
+        <div class="skill"><dt>Languages</dt><dd>Python, R, Java (basics), C/C++ (basics)</dd></div>
+        <div class="skill"><dt>ML frameworks</dt><dd>TensorFlow, PyTorch, scikit-learn, Keras, OpenCV, Hugging Face</dd></div>
+        <div class="skill"><dt>NLP</dt><dd>NLTK, spaCy, Transformers, TextBlob</dd></div>
+        <div class="skill"><dt>Data and visualization</dt><dd>Pandas, NumPy, Matplotlib, Seaborn, Tableau, Power BI</dd></div>
+        <div class="skill"><dt>Deployment</dt><dd>Flask, Streamlit, FastAPI, Gradio</dd></div>
+        <div class="skill"><dt>Databases</dt><dd>SQL, MySQL, MongoDB (basics)</dd></div>
+        <div class="skill"><dt>Big data</dt><dd>Apache Hadoop (basics), Apache Spark (basics)</dd></div>
+        <div class="skill"><dt>Cloud and tooling</dt><dd>Google Cloud Platform, AWS (basics), Git, GitHub, Jupyter Notebook, Google Colab, VS Code</dd></div>
+        <div class="skill"><dt>Working style</dt><dd>Communication, leadership, teamwork, adaptability, analytical thinking, time management</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <div class="wrap section-grid">
+      <h2>Education and recognition</h2>
+      <div class="content stack">
+        <div class="span-2">
+          <div class="row">
+            <div class="when">2021 to 2025</div>
+            <div>
+              <h3>Bachelor of Technology, Artificial Intelligence and Data Science</h3>
+              <div class="org">Jyothi Engineering College</div>
+              <p>APJ Abdul Kalam Technological University. 7.8 CGPA.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="when">March 2021</div>
+            <div>
+              <h3>Higher Secondary, Bio-Science</h3>
+              <div class="org">GHSS Varavoor School</div>
+              <p>98.3%, state board.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="when">March 2019</div>
+            <div>
+              <h3>10th Grade</h3>
+              <div class="org">GHSS Varavoor School</div>
+              <p>100%, state board.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="sub">Papers presented</h3>
+          <ul class="list">
+            <li>Advancing Sign Language Prediction With Neural Network Models<span class="meta">4th International Conference, ARIES 2024</span></li>
+            <li>Braille Speak AI<span class="meta">ACCESS '25 International Conference, IEEE Kerala Section</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="sub">Certifications and workshops</h3>
+          <ul class="list">
+            <li>Deep Learning<span class="meta">NPTEL, 12-week course</span></li>
+            <li>Data Science for Engineers using R Programming<span class="meta">NPTEL, 8-week course</span></li>
+            <li>Data Analytics and Visualization job simulation<span class="meta">Forage virtual internship</span></li>
+            <li>Cybersecurity workshop<span class="meta">Conducted by ISRO</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap section-grid">
+      <h2>Contact</h2>
+      <div class="content">
+        <p style="max-width:58ch;margin-bottom:24px;">I am open to data analyst and AI/ML roles. The quickest way to reach me is by email.</p>
+        <div class="contact-list">
+          <div class="contact-row">
+            <span class="label">Email</span>
+            <span class="value" id="c-email">viseshav7@gmail.com</span>
+            <button class="copy" type="button" data-target="c-email">Copy</button>
+          </div>
+          <div class="contact-row">
+            <span class="label">Phone</span>
+            <span class="value" id="c-phone">+91 8139800784</span>
+            <button class="copy" type="button" data-target="c-phone">Copy</button>
+          </div>
+          <div class="contact-row">
+            <span class="label">LinkedIn</span>
+            <span class="value"><a href="https://www.linkedin.com/in/VISESH-AV" target="_blank" rel="noopener">linkedin.com/in/VISESH-AV</a></span>
+            <span></span>
+          </div>
+          <div class="contact-row">
+            <span class="label">GitHub</span>
+            <span class="value"><a href="https://github.com/viseshvinod" target="_blank" rel="noopener">github.com/viseshvinod</a></span>
+            <span></span>
+          </div>
+          <div class="contact-row">
+            <span class="label">Location</span>
+            <span class="value">Thrissur, Kerala, India</span>
+            <span></span>
+          </div>
+        </div>
+        <p class="note" id="copy-status" role="status" aria-live="polite">&nbsp;</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Visesh AV, 2026</div>
+</footer>
+
+<script>
+(function () {
+  // Project filter
+  var buttons = document.querySelectorAll('.filter');
+  var projects = document.querySelectorAll('.project');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var f = btn.getAttribute('data-filter');
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      projects.forEach(function (p) {
+        var tags = (p.getAttribute('data-tags') || '').split(' ');
+        p.hidden = !(f === 'all' || tags.indexOf(f) > -1);
+      });
+    });
+  });
+
+  // Copy buttons
+  var status = document.getElementById('copy-status');
+  function selectNode(n) {
+    var r = document.createRange();
+    r.selectNodeContents(n);
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+  }
+  document.querySelectorAll('.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var node = document.getElementById(btn.getAttribute('data-target'));
+      var text = node.textContent.trim();
+      var done = function () { status.textContent = 'Copied ' + text; };
+      var fail = function () { selectNode(node); status.textContent = 'Selected. Press Ctrl+C or Cmd+C to copy.'; };
+      try {
+        navigator.clipboard.writeText(text).then(done, fail);
+      } catch (e) { fail(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
